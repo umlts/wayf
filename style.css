@@ -1,0 +1,170 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html, body {
+    height:100%;
+}
+
+body {
+    font-family:sans-serif;
+    font-size:1em;
+    line-height:160%;
+}
+
+div.clear {
+    width:100%;
+    clear:both;
+    float:none;
+}
+
+/**
+ * Format
+ */
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight:normal;
+    line-height:120%;
+}
+
+p {
+
+}
+
+p + p {
+    margin-top:0.5em;
+}
+
+p.important {
+    color:#660000;
+}
+
+h1 {
+    margin-bottom:1.5em;
+    color:#203781;
+    font-size:200%;
+}
+
+h2 {
+    margin-bottom:1em;
+    color:#333333;
+}
+
+table {
+    width:100%;
+    border-collapse:collapse;
+    border:0;
+    line-height:120%;
+    text-align:left;
+    margin:1em 0;
+
+    font-size:90%;
+}
+
+thead {
+    vertical-align:bottom;
+    color:#666666;
+}
+
+thead tr {
+    border-bottom:1px solid #000000;
+    background-color:#d0d0d0;
+}
+
+thead th {
+    font-weight:bold;
+    padding:1em 1em;
+}
+
+tbody {
+}
+
+tbody tr:nth-child(2n) {
+    background-color:#e0e0e0;
+}
+
+tbody tr:nth-child(2n) td:nth-child(2n){
+    background-color:#e8e8e8;
+}
+
+tbody tr:nth-child(2n+1) td:nth-child(2n+1){
+    background-color:#e8e8e8;
+}
+
+tbody td {
+    vertical-align:top;
+    padding:1em 1em;
+    border-bottom:1px solid #d0d0d0;
+}
+
+/**
+ * Layout
+ */
+
+#body {
+    width:100%;
+    max-width:1400px;
+    margin:0 auto;
+    padding:4em 2em 2em 2em;
+}
+
+#body .box {
+    margin-bottom:2em;
+}
+
+#body #login {
+    width:55%;
+    float:left;
+}
+
+#body #login #select {
+    overflow:hidden;
+    margin:2em 0;
+
+    display:table;
+    border-collapse:collapse;
+}
+
+#body #login #select a {
+    padding:1em;
+    color:#ffffff;
+    text-decoration:none;
+    cursor:pointer;
+    background-color:#999999;
+    text-align:center;
+
+    display:table-cell;
+    vertical-align: middle;
+    width:50%;
+    height:100%;
+
+    border:5px solid #ffffff;
+}
+
+#body #login #select a:hover {
+    background-color:#203781;
+}
+
+#body #instructions {
+    width:40%;
+    float:right;
+
+    background-color:#f0f0f0;
+    padding:2em 2em 1em 2em;
+    border-left:2px solid #d0d0d0;
+    border-right:2px solid #d0d0d0;
+}
+
+/** Smaller screens **/
+
+@media screen and ( max-width:1000px ) {
+    #body #login { float:none; width:100%; }
+    #body #instructions {
+        float:none;
+        width:100%;
+        margin-top:2em;
+        padding-top:2em;
+    }
+}
