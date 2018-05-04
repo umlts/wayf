@@ -75,7 +75,7 @@ thead tr {
 
 thead th {
     font-weight:bold;
-    padding:1em 1em;
+    padding:1em 0.5em;
 }
 
 tbody {
@@ -95,7 +95,7 @@ tbody tr:nth-child(2n+1) td:nth-child(2n+1){
 
 tbody td {
     vertical-align:top;
-    padding:1em 1em;
+    padding:1em 0.5em;
     border-bottom:1px solid #d0d0d0;
 }
 
