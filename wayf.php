@@ -42,24 +42,6 @@ $config = array(
 
         'host_replace' => array(
 
-            /*
-             * Old hostnames
-             */
-
-            array(
-                'host' => 'merlin-mobius.missouri.edu',
-                'replacement' => 'classic.searchmobius.org',
-            ),
-            array(
-                'host' => 'm.laurel.lso.missouri.edu',
-                'replacement' => 'm.merlin.mobius.umsystem.edu',
-            ),
-            array(
-                'host' => 'laurel.lso.missouri.edu',
-                'replacement' => 'merlin.mobius.umsystem.edu',
-            ),
-
-
             array(
                 'host' => 'merlin.lib.umsystem.edu',
                 'replacement' => 'merlin.mobius.umsystem.edu',
