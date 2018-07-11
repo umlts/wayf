@@ -34,7 +34,7 @@ $config = array(
 
     'sso' => array(
 
-        'url' => 'https://laurel.lso.missouri.edu/Shibboleth.sso/Login?SAMLDS=1&entityID=https://shib-idp.umsystem.edu/idp/shibboleth&target=cookie:[[cookie_id|urlencode]]'
+        'url' => 'https://merlin.lib.umsystem.edu/Shibboleth.sso/Login?SAMLDS=1&entityID=https://shib-idp.umsystem.edu/idp/shibboleth&target=cookie:[[cookie_id|urlencode]]'
 
     ),
 
