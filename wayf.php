@@ -34,7 +34,7 @@ $config = array(
 
     'sso' => array(
 
-        'url' => 'https://merlin.lib.umsystem.edu/Shibboleth.sso/Login?SAMLDS=1&entityID=https://shib-idp.umsystem.edu/idp/shibboleth&target=cookie:[[cookie_id|urlencode]]'
+        'url' => 'https://[[host]]/Shibboleth.sso/Login?SAMLDS=1&entityID=https://shib-idp.umsystem.edu/idp/shibboleth&target=cookie:[[cookie_id|urlencode]]'
 
     ),
 
@@ -88,6 +88,7 @@ $url_sso = token_replace( 'cookie_id', $cookie_id, $config['sso']['url'] );
 foreach ( $config['merlin']['host_replace'] as $replace ) {
     if ( strpos( $url, $replace['host'] )!== FALSE ) {
         $url_merlin = str_replace( $replace['host'], $replace['replacement'], $url );
+        $url_sso = token_replace( 'host', $replace['host'] );
         break;
     }
 }
