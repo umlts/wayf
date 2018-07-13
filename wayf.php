@@ -88,7 +88,7 @@ $url_sso = token_replace( 'cookie_id', $cookie_id, $config['sso']['url'] );
 foreach ( $config['merlin']['host_replace'] as $replace ) {
     if ( strpos( $url, $replace['host'] )!== FALSE ) {
         $url_merlin = str_replace( $replace['host'], $replace['replacement'], $url );
-        $url_sso = token_replace( 'host', $replace['host'] );
+        $url_sso = token_replace( 'host', $replace['host'], $url_sso );
         break;
     }
 }
