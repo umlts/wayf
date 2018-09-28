@@ -3,7 +3,7 @@
 /**
  * Get cookie id from the return parameter
  */
-function getCookieId( $return ) {
+function get_cookie_id( $return ) {
 
     if ( !preg_match( '/target=cookie:([0-9]+_([a-z0-9]+))/i', $return, $result ) ) {
         return false;
@@ -77,7 +77,7 @@ $config = array(
 
 $entity = $_GET['entityID'];
 $return = urldecode( $_GET['return'] );
-$cookie_id = getCookieId( $return );
+$cookie_id = get_cookie_id( $return );
 $url = $_COOKIE[ '_shibstate_' . $cookie_id ];
 
 
@@ -110,4 +110,3 @@ $template = token_replace( 'url_sso', $url_sso, $template );
 $template = token_replace( 'url_merlin', $url_merlin, $template );
 
 echo $template;
-
