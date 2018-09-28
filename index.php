@@ -47,6 +47,10 @@ $config = array(
                 'replacement' => 'merlin.mobius.umsystem.edu',
             ),
             array(
+                'host' => 'mobile.lib.umsystem.edu',
+                'replacement' => 'merlin.mobius.umsystem.edu',
+            ),
+            array(
                 'host' => 'encore.lib.umsystem.edu',
                 'replacement' => 'encore.mobius.umsystem.edu',
             ),
