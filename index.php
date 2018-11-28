@@ -19,7 +19,7 @@ if ( file_exists( __DIR__ . '/staging.php' ) ) {
     $staging_clients = [
         '127.*.*.*',
         '10.*.*.*',
-        '128.206.162.187'
+        '128.206.162.187',
     ];
 
     if ( is_staging( $staging_clients ) ) {

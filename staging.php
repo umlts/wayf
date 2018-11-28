@@ -113,7 +113,7 @@ $config = array(
 $entity = $_GET['entityID'];
 $return = urldecode( $_GET['return'] );
 $cookie_id = get_cookie_id( $return );
-$url = $_COOKIE[ '_shibstate_' . $cookie_id ];
+$url = !empty( $_COOKIE[ '_shibstate_' . $cookie_id ] ) ? $_COOKIE[ '_shibstate_' . $cookie_id ] : '';
 
 
 // Create URLs
@@ -128,7 +128,6 @@ foreach ( $config['merlin']['host_replace'] as $replace ) {
         break;
     }
 }
-
 
 // Rough check if everything needed is set
 
