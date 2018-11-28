@@ -4,17 +4,6 @@
  * This is the staging version of the WAYF script.
  */
 
-$staging_clients = [
-    '127.0.0.1',
-    '128.206.162.187'
-];
-
-if ( !in_array( $_SERVER['REMOTE_ADDR'], $staging_clients ) ) {
-    return false;
-}
-
-echo '<!-- Staging -->';
-
 /**
  * Get cookie id from the return parameter
  */
@@ -41,6 +30,33 @@ function token_replace( $key, $value, $string ) {
     }
 
     return $string;
+}
+
+
+/**
+ * Rewrites the encore login link from
+ *
+ * https://encore.lib.umsystem.edu/iii/encore
+ *   /search/C__Swaldemar__Orightresult__U?lang=eng&suite=def&fromMain=yes
+ *
+ * to
+ *
+ * https://encore.mobius.umsystem.edu/iii/encore
+ *   /search/C__Swaldemar__Orightresult__U/Sdologin?lang=eng&suite=def&fromMain=yes&loginReason=doDefault
+ *
+ */
+function fix_encore( $url ) {
+
+    if ( stripos( $url, 'https://encore.mobius.umsystem.edu' ) !== 0 ) {
+        return $url;
+    }
+
+    $url = parse_url( $url );
+
+    return $url['scheme'] . '://'
+        . $url['host']
+        . $url['path'] . '/Sdologin'
+        . '?' . $url['query'];
 }
 
 // Configuration
@@ -107,6 +123,7 @@ $url_sso = token_replace( 'cookie_id', $cookie_id, $config['sso']['url'] );
 foreach ( $config['merlin']['host_replace'] as $replace ) {
     if ( strpos( $url, $replace['host'] ) !== FALSE ) {
         $url_merlin = str_replace( $replace['host'], $replace['replacement'], $url );
+        $url_merlin = fix_encore( $url_merlin );
         $url_sso = token_replace( 'host', $replace['host'], $url_sso );
         break;
     }
@@ -129,6 +146,3 @@ $template = token_replace( 'url_sso', $url_sso, $template );
 $template = token_replace( 'url_merlin', $url_merlin, $template );
 
 echo $template;
-
-// Stop execution. Prevents live code from being executed.
-die( '<!-- /Staging -->' );
